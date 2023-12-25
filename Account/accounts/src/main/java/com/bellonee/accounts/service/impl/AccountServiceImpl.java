@@ -3,12 +3,14 @@ package com.bellonee.accounts.service.impl;
 import com.bellonee.accounts.dto.CustomerDto;
 import com.bellonee.accounts.entity.Accounts;
 import com.bellonee.accounts.entity.Customer;
+import com.bellonee.accounts.exception.CustomerAlreadyExistException;
 import com.bellonee.accounts.mappers.CustomerMapper;
 import com.bellonee.accounts.repository.AccountRepository;
 import com.bellonee.accounts.repository.CustomerRepository;
 import com.bellonee.accounts.service.IAccountService;
 import com.bellonee.accounts.utils.ConstantAccount;
 
+import java.util.Optional;
 import java.util.Random;
 
 public class AccountServiceImpl implements IAccountService {
@@ -21,6 +23,10 @@ public class AccountServiceImpl implements IAccountService {
     @Override
     public void createAccount(CustomerDto customerDto) {
         Customer customer = CustomerMapper.mapToCustomerDto(customerDto, new Customer());
+        Optional<Customer> optionalCustomer = customerRepository.findByPhoneNumber(customerDto.getPhoneNumber());
+        if (optionalCustomer.isPresent()){
+            throw new CustomerAlreadyExistException("Customer Already exist with the provided number" + customerDto.getPhoneNumber());
+        }
         Customer saveCustomer = customerRepository.save(customer);
         accountRepository.save(createNewAccount(saveCustomer));
 
