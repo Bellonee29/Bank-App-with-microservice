@@ -17,11 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-
+@AllArgsConstructor
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 public class AccountController {
 
     private IAccountService iAccountService;
+
 
     @PostMapping("/create")
     public ResponseEntity<ResponseDto> createAccount (@RequestBody CustomerDto customerDto){

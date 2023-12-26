@@ -9,10 +9,13 @@ import com.bellonee.accounts.repository.AccountRepository;
 import com.bellonee.accounts.repository.CustomerRepository;
 import com.bellonee.accounts.service.IAccountService;
 import com.bellonee.accounts.utils.ConstantAccount;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Random;
 
+
+@Service
 public class AccountServiceImpl implements IAccountService {
 
     /**
