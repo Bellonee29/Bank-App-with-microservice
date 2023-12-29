@@ -1,6 +1,6 @@
 package com.bellonee.accounts.entity;
 
-import jakarta.persistence.Column;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.*;
@@ -11,7 +11,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Accounts {
+//@Table(name = "accounts")
+public class Accounts extends BaseEntity{
 
 
     private Long customerId;

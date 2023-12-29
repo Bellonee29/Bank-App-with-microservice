@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+//@Table(name = "customer")
 @Getter
 @Setter
 @AllArgsConstructor

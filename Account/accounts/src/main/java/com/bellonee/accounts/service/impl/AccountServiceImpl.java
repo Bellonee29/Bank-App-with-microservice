@@ -31,7 +31,7 @@ public class AccountServiceImpl implements IAccountService {
         Customer customer = CustomerMapper.mapToCustomerDto(customerDto, new Customer());
         Optional<Customer> optionalCustomer = customerRepository.findByPhoneNumber(customerDto.getPhoneNumber());
         if (optionalCustomer.isPresent()){
-            throw new CustomerAlreadyExistException("Customer Already exist with the provided number" + customerDto.getPhoneNumber());
+            throw new CustomerAlreadyExistException("Customer Already exist with the provided number" + " " + customerDto.getPhoneNumber());
         }
 
         customer.setCreatedAt(LocalDateTime.now());
