@@ -10,6 +10,8 @@ public class ConstantAccount {
     public static final String MESSAGE_201 = "Account created successfully";
     public static  final String STATUS_CODE_200 = "200";
     public static final String MESSAGE_200 =  "Request process successfully";
-    public static final String STATUS_CODE_500 = "An error occurred, please contact Bellonee";
+    public static final String STATUS_CODE_500 = "500";
+
+    public static final String MESSAGE_500 = "An error occurred, please contact Bellonee";
 
 }
